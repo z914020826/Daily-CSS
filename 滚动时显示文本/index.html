@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll To Reveal Elements.</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <section>
+      <h1>Scroll To Reveal Elements.</h1>
+    </section>
+    <div class="current"><h2 data-text="2024">2024</h2></div>
+    <div><h2 data-text="2025">2025</h2></div>
+    <div><h2 data-text="2026">2026</h2></div>
+    <div><h2 data-text="2027">2027</h2></div>
+    <div><h2 data-text="2028">2028</h2></div>
+    <div><h2 data-text="2029">2029</h2></div>
+    <div><h2 data-text="2030">2030</h2></div>
+    <div><h2 data-text="2031">2031</h2></div>
+    <div><h2 data-text="2032">2032</h2></div>
+    <div><h2 data-text="...">...</h2></div>
+    <section>
+      <h1>End</h1>
+    </section>
+  </body>
+  <script>
+    function reveal() {
+      console.log(1);
+      const reveals = document.querySelectorAll("h2");
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 300;
+        if (revealTop < windowHeight - revealPoint) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+  </script>
+</html>
